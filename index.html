@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TUAS Autumn Adventure Survey - An interactive feedback survey for international students at Turku University of Applied Sciences">
+    <title>TUAS Student Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="images.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
+    <header role="banner">
+        <div class="header-content">
+            <div class="progress-container">
+                <div class="section-progress" data-section="section1">
+                    <div class="progress-label">Part 1: Basic Info</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="section1Progress"></div>
+                    </div>
+                </div>
+                <div class="section-progress" data-section="section2">
+                    <div class="progress-label">Part 2: Background</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="section2Progress"></div>
+                    </div>
+                </div>
+                <div class="section-progress" data-section="section3">
+                    <div class="progress-label">Part 3: Experience</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="section3Progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner-container">
+        <div class="score-container" title="Your emotional engagement score - increases when you share your feelings and moods">
+            <i class="fas fa-star"></i>
+            <span class="score-label">Mood Score:</span>
+            <span class="score-value">0</span>
+        </div>
+        <div class="blueberry-counter" title="Total questions answered - increases with every response">
+            <i class="fas fa-circle" style="color: #4a69bd;"></i>
+            <span id="blueberry-count">0</span> Blueberries
+        </div>
+    </div>
+
+    <div class="welcome-overlay">
+        <h1>Welcome to TUAS – Your Autumn Adventure Begins!</h1>
+        <p>Join our blueberry-picking adventure as you share your experiences at TUAS. Collect blueberries along the way!</p>
+    </div>
+
+    <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progress"></div>
+    </div>
+
+    <main id="main-content" role="main">
+        <div class="story-container">
+            <div class="story-image girl1"></div>
+            <p class="story-text">Welcome to TUAS! I'm excited to hear about your adventure here.</p>
+        </div>
+
+        <form id="survey-form">
+            <!-- Part 1: Basic Information Section -->
+            <section id="section1" class="survey-section">
+                <div class="section-decoration decoration-top-right"></div>
+                <div class="section-decoration decoration-bottom-left"></div>
+                <h2>Part 1. Basic Information</h2>
+                
+                <div class="question" id="q1" role="group" aria-labelledby="gender-label">
+                    <label id="gender-label">1. What is your gender?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="male" role="radio" aria-checked="false">
+                            <i class="fas fa-male fa-lg"></i> Male
+                        </button>
+                        <button type="button" class="option" data-value="female" role="radio" aria-checked="false">
+                            <i class="fas fa-female fa-lg"></i> Female
+                        </button>
+                        <button type="button" class="option" data-value="others" role="radio" aria-checked="false">
+                            <i class="fas fa-genderless fa-lg"></i> Others
+                        </button>
+                        <button type="button" class="option" data-value="neutral" role="radio" aria-checked="false">
+                            <i class="fas fa-genderless fa-lg"></i> Neutral
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q2" role="group" aria-labelledby="age-label">
+                    <label id="age-label">2. How old are you?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="18-20" role="radio" aria-checked="false">
+                            <i class="fas fa-child fa-lg"></i> 18-20
+                        </button>
+                        <button type="button" class="option" data-value="21-25" role="radio" aria-checked="false">
+                            <i class="fas fa-user fa-lg"></i> 21-25
+                        </button>
+                        <button type="button" class="option" data-value="26-29" role="radio" aria-checked="false">
+                            <i class="fas fa-user fa-lg"></i> 26-29
+                        </button>
+                        <button type="button" class="option" data-value="above 30" role="radio" aria-checked="false">
+                            <i class="fas fa-user fa-lg"></i> Above 30
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q3" role="group" aria-labelledby="origin-label">
+                    <label id="origin-label">3. Where do you come from?</label>
+                    <div class="input-container">
+                        <input type="text" class="text-input country-input" id="country-input" list="countries" placeholder="Type or select your country">
+                        <datalist id="countries">
+                            <option value="Afghanistan">
+                            <option value="Albania">
+                            <option value="Algeria">
+                            <option value="Andorra">
+                            <option value="Angola">
+                            <option value="Argentina">
+                            <option value="Australia">
+                            <option value="Austria">
+                            <option value="Belgium">
+                            <option value="Brazil">
+                            <option value="Cameroon">
+                            <option value="Canada">
+                            <option value="China">
+                            <option value="Denmark">
+                            <option value="Egypt">
+                            <option value="Estonia">
+                            <option value="Finland">
+                            <option value="France">
+                            <option value="Germany">
+                            <option value="Greece">
+                            <option value="Hungary">
+                            <option value="Iceland">
+                            <option value="India">
+                            <option value="Indonesia">
+                            <option value="Iran">
+                            <option value="Iraq">
+                            <option value="Ireland">
+                            <option value="Israel">
+                            <option value="Italy">
+                            <option value="Japan">
+                            <option value="Kenya">
+                            <option value="Latvia">
+                            <option value="Lithuania">
+                            <option value="Luxembourg">
+                            <option value="Malaysia">
+                            <option value="Mexico">
+                            <option value="Morocco">
+                            <option value="Netherlands">
+                            <option value="New Zealand">
+                            <option value="Nigeria">
+                            <option value="Norway">
+                            <option value="Pakistan">
+                            <option value="Poland">
+                            <option value="Portugal">
+                            <option value="Romania">
+                            <option value="Russia">
+                            <option value="Saudi Arabia">
+                            <option value="Singapore">
+                            <option value="South Africa">
+                            <option value="South Korea">
+                            <option value="Spain">
+                            <option value="Sweden">
+                            <option value="Switzerland">
+                            <option value="Thailand">
+                            <option value="Turkey">
+                            <option value="Ukraine">
+                            <option value="United Arab Emirates">
+                            <option value="United Kingdom">
+                            <option value="United States">
+                            <option value="Vietnam">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="question" id="q4" role="group" aria-labelledby="study-period-label">
+                    <label id="study-period-label">4. How long is your study period?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="6 months" role="radio" aria-checked="false">
+                            <i class="fas fa-calendar fa-lg"></i> 6 months
+                        </button>
+                        <button type="button" class="option" data-value="1 year" role="radio" aria-checked="false">
+                            <i class="fas fa-calendar fa-lg"></i> 1 year
+                        </button>
+                        <button type="button" class="option" data-value="above 1 year" role="radio" aria-checked="false">
+                            <i class="fas fa-calendar fa-lg"></i> Above 1 year
+                        </button>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+            </section>
+
+            <!-- Part 2: Background Section -->
+            <section id="section2" class="survey-section">
+                <div class="section-decoration decoration-top-right"></div>
+                <div class="section-decoration decoration-bottom-left"></div>
+                <h2>Part 2. Background</h2>
+                
+                <div class="question" id="q5" role="group" aria-labelledby="field-of-study-label">
+                    <label id="field-of-study-label">5. What is your field of study?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="education engineering" role="radio" aria-checked="false">
+                            <i class="fas fa-university fa-lg"></i> Education Engineering
+                        </button>
+                        <button type="button" class="option" data-value="business" role="radio" aria-checked="false">
+                            <i class="fas fa-briefcase fa-lg"></i> Business
+                        </button>
+                        <button type="button" class="option" data-value="health and well-being" role="radio" aria-checked="false">
+                            <i class="fas fa-heartbeat fa-lg"></i> Health and well-being
+                        </button>
+                        <button type="button" class="option" data-value="art academy" role="radio" aria-checked="false">
+                            <i class="fas fa-paint-brush fa-lg"></i> Art Academy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q6" role="group" aria-labelledby="eu-status-label">
+                    <label id="eu-status-label">6. Where are you from?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="EU Country" role="radio" aria-checked="false">
+                            <i class="fas fa-flag"></i> EU Country
+                        </button>
+                        <button type="button" class="option" data-value="Non-EU Country" role="radio" aria-checked="false">
+                            <i class="fas fa-globe"></i> Non-EU Country
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q7" role="group" aria-labelledby="orientation-days-label">
+                    <label id="orientation-days-label">7. Did the orientation days give you enough information?</label>
+                    <div class="scale-options" role="radiogroup" aria-labelledby="orientation-label">
+                        <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
+                            <i class="fas fa-angry fa-3x"></i>
+                            <span class="scale-label">Very Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-negative" data-value="2" role="radio" aria-checked="false">
+                            <i class="fas fa-frown fa-3x"></i>
+                            <span class="scale-label">Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-neutral" data-value="3" role="radio" aria-checked="false">
+                            <i class="fas fa-meh fa-3x"></i>
+                            <span class="scale-label">Neutral</span>
+                        </button>
+                        <button type="button" class="scale-option mood-positive" data-value="4" role="radio" aria-checked="false">
+                            <i class="fas fa-smile fa-3x"></i>
+                            <span class="scale-label">Satisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-very-positive" data-value="5" role="radio" aria-checked="false">
+                            <i class="fas fa-grin-stars fa-3x"></i>
+                            <span class="scale-label">Very Satisfied</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q8" role="group" aria-labelledby="coordinator-support-label">
+                    <label id="coordinator-support-label">8. How can you rate the accessibility and availability of the international coordinators support towards your well-being?</label>
+                    <div class="scale-options" role="radiogroup" aria-labelledby="orientation-label">
+                        <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
+                            <i class="fas fa-angry fa-3x"></i>
+                            <span class="scale-label">Very Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-negative" data-value="2" role="radio" aria-checked="false">
+                            <i class="fas fa-frown fa-3x"></i>
+                            <span class="scale-label">Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-neutral" data-value="3" role="radio" aria-checked="false">
+                            <i class="fas fa-meh fa-3x"></i>
+                            <span class="scale-label">Neutral</span>
+                        </button>
+                        <button type="button" class="scale-option mood-positive" data-value="4" role="radio" aria-checked="false">
+                            <i class="fas fa-smile fa-3x"></i>
+                            <span class="scale-label">Satisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-very-positive" data-value="5" role="radio" aria-checked="false">
+                            <i class="fas fa-grin-stars fa-3x"></i>
+                            <span class="scale-label">Very Satisfied</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q9" role="group" aria-labelledby="teacher-support-label">
+                    <label id="teacher-support-label">9. Do you feel like the teachers support to learning is accessible and available?</label>
+                    <div class="scale scale-10">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="teacher-support-range">
+                        <div class="scale-labels">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q10" role="group" aria-labelledby="paperwork-label">
+                    <label id="paperwork-label">10. How can you evaluate the handling efficiency of TUAS paper works?</label>
+                    <div class="scale scale-10">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="paperwork-range">
+                        <div class="scale-labels">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q11" role="group" aria-labelledby="courses-label">
+                    <label id="courses-label">11. Have you been able to find suitable courses with our support?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="yes" role="radio" aria-checked="false">
+                            <i class="fas fa-check"></i> Yes
+                        </button>
+                        <button type="button" class="option" data-value="no" role="radio" aria-checked="false">
+                            <i class="fas fa-times"></i> No
+                        </button>
+                    </div>
+                    <textarea class="text-input" placeholder="If no, please explain why..." rows="3"></textarea>
+                </div>
+
+                <div class="question" id="q12" role="group" aria-labelledby="training-label">
+                    <label id="training-label">12. Did TUAS support you in your practical training preparation smoothly?</label>
+                    <div class="scale-options" role="radiogroup" aria-labelledby="orientation-label">
+                        <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
+                            <i class="fas fa-angry fa-3x"></i>
+                            <span class="scale-label">Very Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-negative" data-value="2" role="radio" aria-checked="false">
+                            <i class="fas fa-frown fa-3x"></i>
+                            <span class="scale-label">Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-neutral" data-value="3" role="radio" aria-checked="false">
+                            <i class="fas fa-meh fa-3x"></i>
+                            <span class="scale-label">Neutral</span>
+                        </button>
+                        <button type="button" class="scale-option mood-positive" data-value="4" role="radio" aria-checked="false">
+                            <i class="fas fa-smile fa-3x"></i>
+                            <span class="scale-label">Satisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-very-positive" data-value="5" role="radio" aria-checked="false">
+                            <i class="fas fa-grin-stars fa-3x"></i>
+                            <span class="scale-label">Very Satisfied</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="back-btn">Back</button>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+            </section>
+
+            <!-- Part 3: Learning Experience Section -->
+            <section id="section3" class="survey-section">
+                <div class="section-decoration decoration-top-right"></div>
+                <div class="section-decoration decoration-bottom-left"></div>
+                <h2>Part 3. Learning Experience</h2>
+
+                <div class="question" id="q13" role="group" aria-labelledby="website-label">
+                    <label id="website-label">13. Is the available information on the TUAS website clear?</label>
+                    <div class="scale-options" role="radiogroup" aria-labelledby="orientation-label">
+                        <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
+                            <i class="fas fa-angry fa-3x"></i>
+                            <span class="scale-label">Very Unclear</span>
+                        </button>
+                        <button type="button" class="scale-option mood-negative" data-value="2" role="radio" aria-checked="false">
+                            <i class="fas fa-frown fa-3x"></i>
+                            <span class="scale-label">Unclear</span>
+                        </button>
+                        <button type="button" class="scale-option mood-neutral" data-value="3" role="radio" aria-checked="false">
+                            <i class="fas fa-meh fa-3x"></i>
+                            <span class="scale-label">Neutral</span>
+                        </button>
+                        <button type="button" class="scale-option mood-positive" data-value="4" role="radio" aria-checked="false">
+                            <i class="fas fa-smile fa-3x"></i>
+                            <span class="scale-label">Clear</span>
+                        </button>
+                        <button type="button" class="scale-option mood-very-positive" data-value="5" role="radio" aria-checked="false">
+                            <i class="fas fa-grin-stars fa-3x"></i>
+                            <span class="scale-label">Very Clear</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q14" role="group" aria-labelledby="overall-score-label">
+                    <label id="overall-score-label">14. Give an overall score for the starting of your studies in TUAS?</label>
+                    <div class="scale scale-10">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="overall-score-range">
+                        <div class="scale-labels">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q15" role="group" aria-labelledby="improvement-label">
+                    <label id="improvement-label">15. How do you think we can improve our services?</label>
+                    <textarea class="text-input" placeholder="Please provide your suggestions..." rows="5"></textarea>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="back-btn">Back</button>
+                    <button type="button" class="submit-btn">Submit Survey</button>
+                </div>
+            </section>
+        </form>
+        
+        <div class="wave-separator"></div>
+        
+        <div class="story-container">
+            <div class="story-image girl2"></div>
+            <p class="story-text">Let's collect some blueberries while sharing your experience!</p>
+        </div>
+
+        <!-- Transition Elements -->
+        <div class="transition-overlay"></div>
+        <div class="blueberry-container"></div>
+        
+        <!-- Progress and Score Display -->
+        <!-- <div class="progress-container">
+            <div class="blueberry-count">0</div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div> -->
+        
+        <div id="reward-container" class="reward-container" style="display: none;">
+            <h2>Congratulations!</h2>
+            <p>You've helped collect all the blueberries! Here's your reward:</p>
+            <div class="reward-animation">
+                <img src="images/icons/blueberry-pie.png" alt="Blueberry pie reward" class="reward-image">
+            </div>
+            <p>Thank you for completing the survey and joining our autumn adventure!</p>
+        </div>
+    </main>
+
+    <!-- Progress Steps -->
+    <div class="progress-steps">
+        <div class="progress-step" data-section="section1">
+            <span class="step-label">Basic Information</span>
+        </div>
+        <div class="progress-step" data-section="section2">
+            <span class="step-label">Background</span>
+        </div>
+        <div class="progress-step" data-section="section3">
+            <span class="step-label">Experience</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    
+    <!-- Achievement System -->
+    <div id="achievements-container"></div>
+
+    <!-- Progress Indicator -->
+    <!-- <div class="progress-indicator">
+        <div class="progress-step" data-section="section1">
+            <div class="step-icon"><i class="fas fa-user"></i></div>
+            <div class="step-label">Basic Info</div>
+        </div>
+        <div class="progress-step" data-section="section2">
+            <div class="step-icon"><i class="fas fa-book"></i></div>
+            <div class="step-label">Background</div>
+        </div>
+        <div class="progress-step" data-section="section3">
+            <div class="step-icon"><i class="fas fa-star"></i></div>
+            <div class="step-label">Experience</div>
+        </div>
+    </div> --> 
+
+    <!-- Final Celebration -->
+    <div class="celebration-container" style="display: none;">
+        <div class="celebration-content">
+            <h2 class="celebration-title">Congratulations!</h2>
+            <p class="celebration-message">You've completed the TUAS Student Survey!</p>
+            <div class="celebration-badges">
+                <div class="badge" title="Personal Info Master">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="badge" title="Background Explorer">
+                    <i class="fas fa-book-reader"></i>
+                </div>
+                <div class="badge" title="Experience Sage">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="badge" title="Survey Champion">
+                    <i class="fas fa-trophy"></i>
+                </div>
+            </div>
+            <div class="final-stats">
+                <div class="stat-item">
+                    <i class="fas fa-circle" style="color: #4a69bd;"></i>
+                    <span id="final-blueberry-count">0</span> Blueberries Collected
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span id="final-score">0</span> Points Earned
+                </div>
+            </div>
+            <button class="primary-button close-celebration">Share Your Achievement!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

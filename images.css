@@ -1,0 +1,214 @@
+/* Section Background Styles */
+.survey-section {
+    position: relative;
+    background-color: var(--background-color);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* Part 1: Basic Information */
+#section1 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                      url('images/backgrounds/forest1.jpg');
+}
+
+/* Part 2: Background Information */
+#section2 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                      url('images/backgrounds/campus2.jpg');
+}
+
+/* Part 3: Learning Experience */
+#section3 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                      url('images/backgrounds/Workplace.jpg');
+}
+
+/* Story Container Images */
+.story-image.girl1 {
+    background-image: url('images/excited woman in the kitchen.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.story-image.girl2 {
+    background-image: url('images/grannies holding blueberies cups.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Blueberry Icons */
+.blueberry-icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('images/icons/blueberry.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.blueberry-basket {
+    width: 64px;
+    height: 64px;
+    background-image: url('images/icons/wicker-basket.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+/* Decorative Elements */
+.section-decoration {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.15;
+    pointer-events: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.decoration-top-right {
+    top: 20px;
+    right: 20px;
+    transform: rotate(15deg);
+}
+
+.decoration-bottom-left {
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(-15deg);
+}
+
+/* Part 1 Decorations */
+#section1 .decoration-top-right {
+    background-image: url('images/hand picking blueberry.png');
+}
+
+#section1 .decoration-bottom-left {
+    background-image: url('images/icons/blueberry.png');
+}
+
+/* Part 2 Decorations */
+#section2 .decoration-top-right {
+    background-image: url('images/icons/school.png');
+}
+
+#section2 .decoration-bottom-left {
+    background-image: url('images/icons/graduation-cap.png');
+}
+
+/* Part 3 Decorations */
+#section3 .decoration-top-right {
+    background-image: url('images/icons/learning.png');
+}
+
+#section3 .decoration-bottom-left {
+    background-image: url('images/wave-separator.svg');
+}
+
+/* Story Container */
+.story-container {
+    position: relative;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-image {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.story-text {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Transition Effects */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: url('images/morning sun.png') center/cover no-repeat;
+}
+
+.transition-overlay.active {
+    opacity: 0.8;
+}
+
+/* Blueberry Animation Container */
+.blueberry-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Progress Container */
+.progress-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.blueberry-count {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 0 10px;
+}
+
+/* Wave Separator */
+.wave-separator {
+    width: 100%;
+    height: 30px;
+    background-image: url('images/wave-separator.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 20px 0;
+}
+
+/* Achievement Badge */
+.achievement-badge {
+    width: 128px;
+    height: 128px;
+    background-image: url('images/Squirrel.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    animation: badge-shine 2s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 10px rgba(255, 215, 0, 0)); }
+    50% { filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+}
