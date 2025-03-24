@@ -108,7 +108,19 @@
                 </div>
 
                 <div class="question" id="q3" role="group" aria-labelledby="origin-label">
-                    <label id="origin-label">3. Where do you come from?</label>
+                    <label id="origin-label">3. Where are you from?</label>
+                    <div class="options" role="radiogroup">
+                        <button type="button" class="option" data-value="EU Country" role="radio" aria-checked="false">
+                            <i class="fas fa-flag"></i> EU Country
+                        </button>
+                        <button type="button" class="option" data-value="Non-EU Country" role="radio" aria-checked="false">
+                            <i class="fas fa-globe"></i> Non-EU Country
+                        </button>
+                    </div>
+                </div>
+
+                <div class="question" id="q4" role="group" aria-labelledby="country-label">
+                    <label id="country-label">4. Which country do you come from?</label>
                     <div class="input-container">
                         <input type="text" class="text-input country-input" id="country-input" list="countries" placeholder="Type or select your country">
                         <datalist id="countries">
@@ -176,8 +188,8 @@
                     </div>
                 </div>
 
-                <div class="question" id="q4" role="group" aria-labelledby="study-period-label">
-                    <label id="study-period-label">4. How long is your study period?</label>
+                <div class="question" id="q5" role="group" aria-labelledby="study-period-label">
+                    <label id="study-period-label">5. How long is your study period?</label>
                     <div class="options" role="radiogroup">
                         <button type="button" class="option" data-value="6 months" role="radio" aria-checked="false">
                             <i class="fas fa-calendar fa-lg"></i> 6 months
@@ -202,32 +214,23 @@
                 <div class="section-decoration decoration-bottom-left"></div>
                 <h2>Part 2. Background</h2>
                 
-                <div class="question" id="q5" role="group" aria-labelledby="field-of-study-label">
-                    <label id="field-of-study-label">5. What is your field of study?</label>
+                <div class="question" id="q6" role="group" aria-labelledby="field-of-study-label">
+                    <label id="field-of-study-label">6. What is your field of study?</label>
                     <div class="options" role="radiogroup">
-                        <button type="button" class="option" data-value="education engineering" role="radio" aria-checked="false">
-                            <i class="fas fa-university fa-lg"></i> Education Engineering
+                        <button type="button" class="option" data-value="engineering" role="radio" aria-checked="false">
+                            <i class="fas fa-cogs fa-lg"></i> Engineering
+                        </button>
+                        <button type="button" class="option" data-value="health and well-being" role="radio" aria-checked="false">
+                            <i class="fas fa-heartbeat fa-lg"></i> Health and Well-being
+                        </button>
+                        <button type="button" class="option" data-value="arts academy" role="radio" aria-checked="false">
+                            <i class="fas fa-paint-brush fa-lg"></i> Arts Academy
                         </button>
                         <button type="button" class="option" data-value="business" role="radio" aria-checked="false">
                             <i class="fas fa-briefcase fa-lg"></i> Business
                         </button>
-                        <button type="button" class="option" data-value="health and well-being" role="radio" aria-checked="false">
-                            <i class="fas fa-heartbeat fa-lg"></i> Health and well-being
-                        </button>
-                        <button type="button" class="option" data-value="art academy" role="radio" aria-checked="false">
-                            <i class="fas fa-paint-brush fa-lg"></i> Art Academy
-                        </button>
-                    </div>
-                </div>
-
-                <div class="question" id="q6" role="group" aria-labelledby="eu-status-label">
-                    <label id="eu-status-label">6. Where are you from?</label>
-                    <div class="options" role="radiogroup">
-                        <button type="button" class="option" data-value="EU Country" role="radio" aria-checked="false">
-                            <i class="fas fa-flag"></i> EU Country
-                        </button>
-                        <button type="button" class="option" data-value="Non-EU Country" role="radio" aria-checked="false">
-                            <i class="fas fa-globe"></i> Non-EU Country
+                        <button type="button" class="option" data-value="ict and industrial management" role="radio" aria-checked="false">
+                            <i class="fas fa-laptop-code fa-lg"></i> ICT and Industrial Management
                         </button>
                     </div>
                 </div>
@@ -259,7 +262,7 @@
                 </div>
 
                 <div class="question" id="q8" role="group" aria-labelledby="coordinator-support-label">
-                    <label id="coordinator-support-label">8. How can you rate the accessibility and availability of the international coordinators support towards your well-being?</label>
+                    <label id="coordinator-support-label">8. How can you rate the availability and support of the international relations coordinators?</label>
                     <div class="scale-options" role="radiogroup" aria-labelledby="orientation-label">
                         <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
                             <i class="fas fa-angry fa-3x"></i>
@@ -285,26 +288,33 @@
                 </div>
 
                 <div class="question" id="q9" role="group" aria-labelledby="teacher-support-label">
-                    <label id="teacher-support-label">9. Do you feel like the teachers support to learning is accessible and available?</label>
-                    <div class="scale scale-10">
-                        <input type="range" min="1" max="10" value="5" class="slider" id="teacher-support-range">
-                        <div class="scale-labels">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                            <span>6</span>
-                            <span>7</span>
-                            <span>8</span>
-                            <span>9</span>
-                            <span>10</span>
-                        </div>
+                    <label id="teacher-support-label">9. Do you feel the tutor support is accessible and available?</label>
+                    <div class="scale-options" role="radiogroup" aria-labelledby="tutor-support-label">
+                        <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
+                            <i class="fas fa-angry fa-3x"></i>
+                            <span class="scale-label">Very Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-negative" data-value="2" role="radio" aria-checked="false">
+                            <i class="fas fa-frown fa-3x"></i>
+                            <span class="scale-label">Dissatisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-neutral" data-value="3" role="radio" aria-checked="false">
+                            <i class="fas fa-meh fa-3x"></i>
+                            <span class="scale-label">Neutral</span>
+                        </button>
+                        <button type="button" class="scale-option mood-positive" data-value="4" role="radio" aria-checked="false">
+                            <i class="fas fa-smile fa-3x"></i>
+                            <span class="scale-label">Satisfied</span>
+                        </button>
+                        <button type="button" class="scale-option mood-very-positive" data-value="5" role="radio" aria-checked="false">
+                            <i class="fas fa-grin-stars fa-3x"></i>
+                            <span class="scale-label">Very Satisfied</span>
+                        </button>
                     </div>
                 </div>
 
                 <div class="question" id="q10" role="group" aria-labelledby="paperwork-label">
-                    <label id="paperwork-label">10. How can you evaluate the handling efficiency of TUAS paper works?</label>
+                    <label id="paperwork-label">10. How can you evaluate the handling efficiency of TUAS paper works (example, learning agreement)?</label>
                     <div class="scale scale-10">
                         <input type="range" min="1" max="10" value="5" class="slider" id="paperwork-range">
                         <div class="scale-labels">
@@ -336,7 +346,7 @@
                 </div>
 
                 <div class="question" id="q12" role="group" aria-labelledby="training-label">
-                    <label id="training-label">12. Did TUAS support you in your practical training preparation smoothly?</label>
+                    <label id="training-label">12. If you are doing a training with Turku UAS, did TUAS support you in your practical training preparation smoothly?</label>
                     <div class="scale-options" role="radiogroup" aria-labelledby="orientation-label">
                         <button type="button" class="scale-option mood-very-negative" data-value="1" role="radio" aria-checked="false">
                             <i class="fas fa-angry fa-3x"></i>
@@ -527,5 +537,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="scroll-fix.js"></script>
+    <script src="counting-fix.js"></script>
 </body>
 </html>

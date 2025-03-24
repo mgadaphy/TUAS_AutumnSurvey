@@ -42,13 +42,13 @@ This project implements an innovative, gamified survey system designed to gather
 ## Technical Implementation
 
 ### Frontend Architecture
-```
-TUAS_SummerSurvey/
+TUAS_AutumnSurvey/
 ├── index.html      # Main survey structure
 ├── styles.css      # Core styling and animations
 ├── images.css      # Image-related styles
-└── script.js       # Interactive functionality
-```
+├── script.js       # Core interactive functionality
+├── counting-fix.js # Blueberry counting system fix
+└── scroll-fix.js   # Smooth scrolling implementation
 
 ### Core Components
 
@@ -112,8 +112,8 @@ TUAS_SummerSurvey/
 1. **Blueberry Collection**
    - Text Input: 1 blueberry per meaningful entry
    - Option Selection: 1 blueberry per selection
-   - Slider Movement: Up to 5 blueberries per slider
-   - Emotional Ratings: 1 blueberry + mood score
+   - Slider Movement: 1 blueberry when value changes
+   - Emotional Ratings: 1 blueberry + 1 mood score point
 
 ### Animation System
 - **Collection Effects**:
@@ -126,6 +126,36 @@ TUAS_SummerSurvey/
   ```
 - **Progress Indicators**
 - **Emotional Feedback**
+
+## Change History
+
+### Blueberry Counting System Improvements (March 2025)
+The blueberry counting system has been enhanced to ensure consistent behavior:
+
+1. **Consistent Counting**: Each question now adds exactly 1 blueberry to the counter when answered, regardless of question type.
+
+2. **Mood Score Fix**: For mood questions (those with emoji ratings), the mood score now increases by exactly 1 point instead of 2.
+
+3. **Duplicate Prevention**: A tracking system prevents questions from being counted multiple times if answered repeatedly.
+
+4. **Input Type Handling**:
+   - Text inputs are counted only once after typing stops
+   - Dropdown selections are properly tracked
+   - Sliders count only once when changed
+
+5. **Reset Prevention**: Counter values are preserved even when other scripts might try to reset them.
+
+### Navigation Improvements (March 2025)
+Added smooth scrolling behavior when navigating between sections for a better user experience.
+
+### GitHub Pages Deployment (February 2025)
+Added automated GitHub Pages deployment workflow to make the survey accessible online.
+
+### Licensing (January 2025)
+Added MIT License to the project.
+
+### Initial Commit (December 2024)
+Initial version of the gamified survey system with basic functionality.
 
 ## Detailed Technical Implementation
 

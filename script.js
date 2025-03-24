@@ -112,6 +112,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         currentSection = index;
         updateProgressIndicators(index);
+        
+        // Scroll to the top of the page when changing sections
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     // Generic function to handle option selection
@@ -502,26 +508,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add input handlers for text inputs
     document.querySelectorAll('.text-input').forEach(input => {
         let typingTimer;
-        let hasEarnedPoints = false;
-        
         input.addEventListener('input', () => {
-            const value = input.value.trim();
-            if (value !== '') {
+            if (input.value.trim() !== '') {
                 // Clear existing timer
                 clearTimeout(typingTimer);
                 
                 // Set new timer
                 typingTimer = setTimeout(() => {
-                    if (!hasEarnedPoints) {
-                        updateBlueberryCounter();
-                        const rect = input.getBoundingClientRect();
-                        blueberryAnimations.createBlueberryBurst(rect.left + rect.width / 2, rect.top);
-                        soundManager.playBlueberrySound('collect');
-                        hasEarnedPoints = true;
-                    }
+                    updateBlueberryCounter();
+                    const rect = input.getBoundingClientRect();
+                    blueberryAnimations.createBlueberryBurst(rect.left + rect.width / 2, rect.top);
+                    soundManager.playBlueberrySound('collect');
                 }, 500);
-            } else {
-                hasEarnedPoints = false;
             }
         });
     });
@@ -893,100 +891,6 @@ function showFinalCelebration() {
     });
 }
 
-// Update section completion check
-function checkSectionCompletion(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (!section) return;
-    
-    const questions = section.querySelectorAll('.question');
-    let completed = true;
-    
-    questions.forEach(question => {
-        const options = question.querySelectorAll('.option, .scale-option');
-        const textInput = question.querySelector('.text-input');
-        const slider = question.querySelector('input[type="range"]');
-        
-        let isAnswered = false;
-        
-        if (options.length > 0) {
-            isAnswered = Array.from(options).some(opt => 
-                opt.classList.contains('selected'));
-        } else if (textInput) {
-            isAnswered = textInput.value.trim() !== '';
-        } else if (slider) {
-            isAnswered = true; // Sliders always have a value
-        }
-        
-        if (!isAnswered) {
-            completed = false;
-        }
-    });
-    
-    if (completed) {
-        section.classList.add('section-complete');
-        showAchievement(sectionId + '-complete');
-        
-        // Update badges and progress
-        const badgeId = `${sectionId}-badge`;
-        const badge = document.querySelector(`#${badgeId}`);
-        if (badge) {
-            badge.classList.add('earned');
-            soundManager.playNavigationSound('next');
-        }
-        
-        updateProgressSteps();
-        
-        // Check if all sections are complete
-        const allSections = ['section1', 'section2', 'section3'];
-        const allComplete = allSections.every(id => 
-            document.getElementById(id)?.classList.contains('section-complete')
-        );
-        
-        if (allComplete) {
-            const championBadge = document.querySelector('#champion-badge');
-            if (championBadge) {
-                championBadge.classList.add('earned');
-                soundManager.playNavigationSound('next');
-            }
-            setTimeout(showFinalCelebration, 1000);
-        }
-    }
-    
-    return completed;
-}
-
-// Show achievement notification
-function showAchievement(id) {
-    const achievementNames = {
-        'section1-complete': 'Personal Info Master',
-        'section2-complete': 'Background Explorer',
-        'section3-complete': 'Experience Sage',
-        'survey-complete': 'Survey Champion'
-    };
-    
-    const name = achievementNames[id] || 'Achievement Unlocked';
-    const notification = document.createElement('div');
-    notification.className = 'achievement-notification';
-    notification.innerHTML = `
-        <i class="fas fa-award"></i>
-        <div class="achievement-text">
-            <h3>${name}</h3>
-            <p>New badge earned!</p>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    setTimeout(() => {
-        notification.classList.add('show');
-        soundManager.playNavigationSound('next');
-    }, 100);
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize variables
     const sections = document.querySelectorAll('.survey-section');
@@ -998,6 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         sections.forEach((section, i) => {
             section.style.display = i === index ? 'block' : 'none';
+            section.classList.toggle('active', i === index);
         });
         
         currentSection = index;
