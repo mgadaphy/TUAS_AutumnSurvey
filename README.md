@@ -42,6 +42,7 @@ This project implements an innovative, gamified survey system designed to gather
 ## Technical Implementation
 
 ### Frontend Architecture
+```
 TUAS_AutumnSurvey/
 ├── index.html      # Main survey structure
 ├── styles.css      # Core styling and animations
@@ -49,6 +50,7 @@ TUAS_AutumnSurvey/
 ├── script.js       # Core interactive functionality
 ├── counting-fix.js # Blueberry counting system fix
 └── scroll-fix.js   # Smooth scrolling implementation
+```
 
 ### Core Components
 
